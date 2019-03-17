@@ -4,24 +4,24 @@
 #
 Name     : R-solrium
 Version  : 1.0.2
-Release  : 8
+Release  : 9
 URL      : https://cran.r-project.org/src/contrib/solrium_1.0.2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/solrium_1.0.2.tar.gz
 Summary  : General Purpose R Interface to 'Solr'
 Group    : Development/Tools
 License  : MIT
-Requires: R-XML
-Requires: R-crul
-Requires: R-dplyr
-Requires: R-jsonlite
-Requires: R-plyr
-Requires: R-tibble
-Requires: R-xml2
+Requires: R-httpcode
+Requires: R-purrr
+Requires: R-rlang
 BuildRequires : R-XML
 BuildRequires : R-crul
 BuildRequires : R-dplyr
+BuildRequires : R-httpcode
 BuildRequires : R-jsonlite
+BuildRequires : R-pkgconfig
 BuildRequires : R-plyr
+BuildRequires : R-purrr
+BuildRequires : R-rlang
 BuildRequires : R-tibble
 BuildRequires : R-xml2
 BuildRequires : buildreq-R
@@ -42,10 +42,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1544711758
+export SOURCE_DATE_EPOCH=1552848814
 
 %install
-export SOURCE_DATE_EPOCH=1544711758
+export SOURCE_DATE_EPOCH=1552848814
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -81,8 +81,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library solrium|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  solrium || :
 
 
 %files
@@ -134,3 +133,32 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/solrium/help/solrium.rdx
 /usr/lib64/R/library/solrium/html/00Index.html
 /usr/lib64/R/library/solrium/html/R.css
+/usr/lib64/R/library/solrium/tests/cloud_mode/test-add.R
+/usr/lib64/R/library/solrium/tests/cloud_mode/test-collections.R
+/usr/lib64/R/library/solrium/tests/standard_mode/test-core_create.R
+/usr/lib64/R/library/solrium/tests/test-all.R
+/usr/lib64/R/library/solrium/tests/testthat/helper-solrium.R
+/usr/lib64/R/library/solrium/tests/testthat/test-add.R
+/usr/lib64/R/library/solrium/tests/testthat/test-client.R
+/usr/lib64/R/library/solrium/tests/testthat/test-collections.R
+/usr/lib64/R/library/solrium/tests/testthat/test-core_create.R
+/usr/lib64/R/library/solrium/tests/testthat/test-cursorMark.R
+/usr/lib64/R/library/solrium/tests/testthat/test-delete.R
+/usr/lib64/R/library/solrium/tests/testthat/test-errors.R
+/usr/lib64/R/library/solrium/tests/testthat/test-ping.R
+/usr/lib64/R/library/solrium/tests/testthat/test-schema.R
+/usr/lib64/R/library/solrium/tests/testthat/test-solr_all.R
+/usr/lib64/R/library/solrium/tests/testthat/test-solr_error.R
+/usr/lib64/R/library/solrium/tests/testthat/test-solr_facet.r
+/usr/lib64/R/library/solrium/tests/testthat/test-solr_get.R
+/usr/lib64/R/library/solrium/tests/testthat/test-solr_goup.R
+/usr/lib64/R/library/solrium/tests/testthat/test-solr_highlight.r
+/usr/lib64/R/library/solrium/tests/testthat/test-solr_json_request.R
+/usr/lib64/R/library/solrium/tests/testthat/test-solr_mlt.r
+/usr/lib64/R/library/solrium/tests/testthat/test-solr_search.r
+/usr/lib64/R/library/solrium/tests/testthat/test-solr_stats.r
+/usr/lib64/R/library/solrium/tests/testthat/test-update_atomic_json.R
+/usr/lib64/R/library/solrium/tests/testthat/test-update_atomic_xml.R
+/usr/lib64/R/library/solrium/tests/testthat/test-update_csv.R
+/usr/lib64/R/library/solrium/tests/testthat/test-update_json.R
+/usr/lib64/R/library/solrium/tests/testthat/test-update_xml.R

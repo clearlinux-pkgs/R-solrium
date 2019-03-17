@@ -2,8 +2,11 @@
 R-XML
 R-crul
 R-dplyr
+R-httpcode
 R-jsonlite
 R-pkgconfig
 R-plyr
+R-purrr
+R-rlang
 R-tibble
 R-xml2
