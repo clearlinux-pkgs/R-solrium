@@ -1,10 +1,13 @@
 1.0.2
+R-Rcpp
 R-XML
 R-cli
 R-crul
+R-curl
 R-dplyr
 R-httpcode
 R-jsonlite
+R-pillar
 R-pkgconfig
 R-plyr
 R-purrr
