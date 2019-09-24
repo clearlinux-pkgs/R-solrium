@@ -4,28 +4,26 @@
 #
 Name     : R-solrium
 Version  : 1.0.2
-Release  : 16
+Release  : 17
 URL      : https://cran.r-project.org/src/contrib/solrium_1.0.2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/solrium_1.0.2.tar.gz
 Summary  : General Purpose R Interface to 'Solr'
 Group    : Development/Tools
 License  : MIT
-Requires: R-Rcpp
-Requires: R-curl
-Requires: R-pillar
-BuildRequires : R-Rcpp
+Requires: R-R6
+Requires: R-XML
+Requires: R-crul
+Requires: R-dplyr
+Requires: R-jsonlite
+Requires: R-plyr
+Requires: R-tibble
+Requires: R-xml2
+BuildRequires : R-R6
 BuildRequires : R-XML
-BuildRequires : R-cli
 BuildRequires : R-crul
-BuildRequires : R-curl
 BuildRequires : R-dplyr
-BuildRequires : R-httpcode
 BuildRequires : R-jsonlite
-BuildRequires : R-pillar
-BuildRequires : R-pkgconfig
 BuildRequires : R-plyr
-BuildRequires : R-purrr
-BuildRequires : R-rlang
 BuildRequires : R-tibble
 BuildRequires : R-xml2
 BuildRequires : buildreq-R
@@ -33,7 +31,7 @@ BuildRequires : buildreq-R
 %description
 solrium
 =======
-[![Project Status: Active â The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![cran checks](https://cranchecks.info/badges/worst/solrium)](https://cranchecks.info/pkgs/solrium)
 [![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/solrium?color=2ED968)](https://github.com/metacran/cranlogs.app)
 [![cran version](https://www.r-pkg.org/badges/version/solrium)](https://cran.r-project.org/package=solrium)
@@ -45,13 +43,13 @@ solrium
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1552939521
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1569295184
 
 %install
-export SOURCE_DATE_EPOCH=1552939521
+export SOURCE_DATE_EPOCH=1569295184
 rm -rf %{buildroot}
-export LANG=C
+export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -80,12 +78,12 @@ R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} 
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc  solrium || :
+R CMD check --no-manual --no-examples --no-codoc solrium || :
 
 
 %files
