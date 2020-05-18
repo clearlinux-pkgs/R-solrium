@@ -4,14 +4,13 @@
 #
 Name     : R-solrium
 Version  : 1.1.4
-Release  : 21
+Release  : 22
 URL      : https://cran.r-project.org/src/contrib/solrium_1.1.4.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/solrium_1.1.4.tar.gz
 Summary  : General Purpose R Interface to 'Solr'
 Group    : Development/Tools
 License  : MIT
 Requires: R-R6
-Requires: R-XML
 Requires: R-crul
 Requires: R-dplyr
 Requires: R-jsonlite
@@ -19,7 +18,6 @@ Requires: R-plyr
 Requires: R-tibble
 Requires: R-xml2
 BuildRequires : R-R6
-BuildRequires : R-XML
 BuildRequires : R-crul
 BuildRequires : R-dplyr
 BuildRequires : R-jsonlite
@@ -27,7 +25,6 @@ BuildRequires : R-plyr
 BuildRequires : R-tibble
 BuildRequires : R-xml2
 BuildRequires : buildreq-R
-BuildRequires : util-linux
 
 %description
 solrium
@@ -41,21 +38,22 @@ solrium
 
 %prep
 %setup -q -c -n solrium
+cd %{_builddir}/solrium
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1572798241
+export SOURCE_DATE_EPOCH=1589774696
 
 %install
-export SOURCE_DATE_EPOCH=1572798241
+export SOURCE_DATE_EPOCH=1589774696
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
