@@ -4,7 +4,7 @@
 #
 Name     : R-solrium
 Version  : 1.1.4
-Release  : 22
+Release  : 23
 URL      : https://cran.r-project.org/src/contrib/solrium_1.1.4.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/solrium_1.1.4.tar.gz
 Summary  : General Purpose R Interface to 'Solr'
